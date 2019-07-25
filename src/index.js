@@ -9,7 +9,7 @@ let bookList = [
 	{"title": "Cat's Cradle", "author": "Kurt Vonnegut", "pages": 304}
 ]
 
-const Book = ({title, author, pages, freeBookmark}) => {
+const Book = ({title='No title provided', author='no author', pages=0, freeBookmark}) => {
 	return (
 		<section>
 			<h2>{title}</h2>
@@ -31,7 +31,7 @@ const NotHiring = () =>
 	</div>
 
 class Library extends React.Component {
-
+	
 	static defaultProps = {
 		books: [
 			{
@@ -55,7 +55,7 @@ class Library extends React.Component {
 			loading: true
 		});
 
-		fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/10')
+		fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/2')
 			.then(data => data.json())
 			.then(data => this.setState({
 				data,
