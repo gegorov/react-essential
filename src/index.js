@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import PropTypes from 'prop-types';
 
 import FavoriteColorForm from './favoriteColorForm';
 let bookList = [
@@ -111,7 +112,16 @@ class Library extends React.Component {
 	}
 }
 
+Library.propTypes = {
+	books: PropTypes.array,
+}
 
+Book.proptypes = {
+	title: PropTypes.string,
+	author: PropTypes.string,
+	pages: PropTypes.number,
+	freeBookmark: PropTypes.bool,
+}
 
 render(
 	<Library books={bookList} />, 
