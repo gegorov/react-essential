@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import FavoriteColorForm from './favoriteColorForm';
 let bookList = [
 	{"title": "Hunger", "author": "Roxane Gay", "pages": 320},
 	{"title": "The Sun Also Rises", "author": "Ernest Hemingway", "pages": 260},
@@ -30,6 +31,16 @@ const NotHiring = () =>
 	</div>
 
 class Library extends React.Component {
+
+	static defaultProps = {
+		books: [
+			{
+				'title': 'Taho Tales',
+				'author': 'Chet Whitley',
+				'pages': 1000,
+			}
+		]
+	}
 	
 	state = { 
 		open: true,
@@ -65,6 +76,7 @@ class Library extends React.Component {
 		const { books } = this.props
 		return (
 			<div>
+				<FavoriteColorForm />
 				{this.state.hiring ? <Hiring /> : <NotHiring />}
 				{
 					this.state.loading
@@ -102,6 +114,6 @@ class Library extends React.Component {
 
 
 render(
-	<Library books={bookList}/>, 
+	<Library books={bookList} />, 
 	document.getElementById('root')
 )
